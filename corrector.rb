@@ -1,4 +1,4 @@
-class Corrector
+class Corrector < person
   attr_accessor :name
 
   def correct_name(name)

@@ -1,6 +1,6 @@
-require './Corrector'
+require './corrector'
 
-class Person
+class Person < corrector
   attr_reader :id
   attr_accessor :name, :age
 
@@ -17,7 +17,7 @@ class Person
   end
 
   def validate_name
-    @name = @corrector.correct_name(name)
+    @name = @corrector.correct_name(@name)
   end
 
   private
