@@ -2,7 +2,7 @@ class Nameable
   def correct_name
     raise NotImplementedError
   end
-end    
+end
 
 class Decorator < Nameable
   attr_accessor :nameable
