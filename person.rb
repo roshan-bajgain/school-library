@@ -1,6 +1,6 @@
-require './corrector'
+require './decorator'
 
-class Person < corrector
+class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
 
