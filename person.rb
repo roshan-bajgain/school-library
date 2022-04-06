@@ -9,15 +9,14 @@ class Person < Nameable
     @name = name
     @age = age
     @parent_permission = parent_permission
-    @corrector = Corrector.new
   end
 
   def can_use_services?
     of_age? || @parent_permission
   end
 
-  def validate_name
-    @name = @corrector.correct_name(@name)
+  def correct_name
+    @name
   end
 
   private
