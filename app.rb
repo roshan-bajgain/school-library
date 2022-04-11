@@ -4,6 +4,7 @@ require './teacher'
 require './book'
 require './classroom'
 require './rental'
+require './books/create_books'
 
 class App
   def initialize
@@ -85,14 +86,7 @@ class App
   end
 
   def create_book()
-    puts 'Create a new book'
-    print 'Enter title: '
-    title = gets.chomp
-    print 'Enter author: '
-    author = gets
-    book = Book.new(title, author)
-    @books.push(book)
-    puts "Book #{title} created successfully."
+    @books << CreateBook.new.create_book
   end
 
   def create_rental
