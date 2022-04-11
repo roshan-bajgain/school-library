@@ -4,7 +4,8 @@ require './teacher'
 require './book'
 require './classroom'
 require './rental'
-require './books/create_books'
+require './lib/create_books'
+require './lib/create_persons'
 
 class App
   def initialize
@@ -44,7 +45,7 @@ class App
 
     case option
     when '1'
-      create_student
+      @persons << CreatePerson.new.create_student
     when '2'
       create_teacher
     else
@@ -52,25 +53,6 @@ class App
     end
   end
 
-  def create_student
-    puts 'Create a new student'
-    print 'Enter student age: '
-    age = gets.chomp.to_i
-    print 'Enter name: '
-    name = gets.chomp
-    print 'Has parent permission? [Y/N]: '
-    parent_permission = gets.chomp.downcase
-    case parent_permission
-    when 'n'
-      student = Student.new(age, name, parent_permission: false)
-      @persons << student
-      puts 'Student doesnt have parent permission, cant rent books'
-    when 'y'
-      student = Student.new(age, name, parent_permission: true)
-      @persons << student
-      puts 'Student created successfully'
-    end
-  end
 
   def create_teacher
     puts 'Create a new teacher'
