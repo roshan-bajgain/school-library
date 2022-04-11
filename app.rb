@@ -47,24 +47,10 @@ class App
     when '1'
       @persons << CreatePerson.new.create_student
     when '2'
-      create_teacher
+      @persons << CreatePerson.new.create_teacher
     else
       puts 'Invalid input. Try again'
     end
-  end
-
-
-  def create_teacher
-    puts 'Create a new teacher'
-    print 'Enter teacher age: '
-    age = gets.chomp.to_i
-    print 'Enter teacher name: '
-    name = gets.chomp
-    print 'Enter teacher specialization: '
-    specialization = gets.chomp
-    teacher = Teacher.new(specialization, age, name)
-    @persons << teacher
-    puts 'Teacher created successfully'
   end
 
   def create_book()
