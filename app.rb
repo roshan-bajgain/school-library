@@ -7,12 +7,14 @@ require './rental'
 require './lib/create_books'
 require './lib/create_persons'
 require './lib/create_rental'
+require './lib/displayer'
 
 class App
   def initialize
     @books = []
     @persons = []
     @rentals = []
+    @displayer = Displayer.new
   end
 
   def start_console
@@ -29,15 +31,11 @@ class App
   end
 
   def list_all_books
-    puts 'Database is empty! Add a book.' if @books.empty?
-    @books.each { |book| puts "[Book] Title: #{book.title}, Author: #{book.author}" }
+    @displayer.display_books(@books)
   end
 
   def list_all_persons
-    puts 'Database is empty! Add a person.' if @persons.empty?
-    @persons.each do |person|
-      puts "[#{person.class.name}] Name: #{person.name}, Age: #{person.age}, id: #{person.id}"
-    end
+    @displayer.display_persons(@persons)
   end
 
   def create_person
@@ -63,19 +61,6 @@ class App
   end
 
   def list_all_rentals
-    puts 'To see person rentals enter the person ID: '
-    @persons.each do |person|
-      puts "id: #{person.id}"
-    end
-    id = gets.chomp.to_i
-    puts 'Rented Books:'
-    @rentals.each do |rental|
-      if rental.person.id == id
-        puts "Peson: #{rental.person.name}  Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
-      else
-        puts
-        puts 'No records where found for the given ID'
-      end
-    end
+    @displayer.display_rentals(@persons, @rentals)
   end
 end
