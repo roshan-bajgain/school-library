@@ -13,6 +13,7 @@ class Console
       if input == '7'
         puts 'Thank You for using my School Library!'
         Save_book(@app.books)
+        save_persons(@app.persons)
         break
       end
 
