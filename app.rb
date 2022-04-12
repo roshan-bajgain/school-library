@@ -17,19 +17,6 @@ class App
     @displayer = Displayer.new
   end
 
-  def start_console
-    puts 'Welcome to my School Library!'
-    until list_of_options
-      input = gets.chomp
-      if input == '7'
-        puts 'Thank You for using my School Library!'
-        break
-      end
-
-      option input
-    end
-  end
-
   def list_all_books
     @displayer.display_books(@books)
   end
