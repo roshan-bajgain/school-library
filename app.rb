@@ -39,17 +39,7 @@ class App
   end
 
   def create_person
-    print 'To create a student, press 1, to create a teacher, press 2 : '
-    option = gets.chomp
-
-    case option
-    when '1'
-      @persons << CreatePerson.new.create_student
-    when '2'
-      @persons << CreatePerson.new.create_teacher
-    else
-      puts 'Invalid input. Try again'
-    end
+    @persons << CreatePerson.new.create_person
   end
 
   def create_book()

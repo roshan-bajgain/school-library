@@ -1,5 +1,19 @@
 class CreatePerson
-  def inputs
+  def create_person
+    print 'To create a student, press 1, to create a teacher, press 2 : '
+    option = gets.chomp
+
+    case option
+    when '1'
+      create_student
+    when '2'
+      create_teacher
+    else
+      puts 'Invalid input. Try again'
+    end
+  end
+
+  def inputs_person
     puts 'Create a new student'
     print 'Enter student age: '
     age = gets.chomp.to_i
@@ -11,7 +25,7 @@ class CreatePerson
   end
 
   def create_student
-    age, name, parent_permission = inputs
+    age, name, parent_permission = inputs_person
     case parent_permission
     when 'n'
       student = Student.new(age, name, parent_permission: false)
