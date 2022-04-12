@@ -1,4 +1,5 @@
 require './app'
+require './lib/save_data'
 
 class Console
   def initialize
@@ -11,6 +12,7 @@ class Console
       input = gets.chomp
       if input == '7'
         puts 'Thank You for using my School Library!'
+        Save_book(@app.books)
         break
       end
 
