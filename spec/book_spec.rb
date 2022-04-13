@@ -6,13 +6,13 @@ describe 'Book' do
     @book = Book.new('Harry poter', 'jk rouling')
   end
   it 'Take title and author' do
-    @book.author.should eql 'jk rouling'
-    @book.title.should eql 'Harry poter'
+    expect(@book.author).to eq 'jk rouling'
+    expect(@book.title).to eq 'Harry poter'
   end
 
   it 'Take title and author' do
     book2 = Book.new('The Gorkha', 'Roshan')
-    book2.author.should eql 'Roshan'
-    book2.title.should eql 'The Gorkha'
+    expect(book2.author).to eq 'Roshan'
+    expect(book2.title).to eq 'The Gorkha'
   end
 end
