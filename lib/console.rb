@@ -14,6 +14,7 @@ class Console
         puts 'Thank You for using my School Library!'
         Save_book(@app.books)
         Save_rental(@app.rentals)
+        save_persons(@app.persons)
         break
       end
 

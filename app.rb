@@ -11,7 +11,7 @@ require './lib/displayer'
 require 'json'
 
 class App
-  attr_accessor :books, :rentals
+  attr_accessor :books, :rentals, :persons
   def initialize 
     @books = []
     @persons = []
