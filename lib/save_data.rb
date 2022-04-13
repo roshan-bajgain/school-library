@@ -9,7 +9,7 @@ def save_books(books)
 
   ruby = JSON.generate(books_save)
 
-  File.write('books.json', ruby.to_s)
+  File.write('./datas/books.json', ruby.to_s)
 end
 
 def save_persons(persons)
@@ -25,5 +25,13 @@ def save_persons(persons)
 
   ruby = JSON.generate(persons_save)
 
-  File.write('persons.json', ruby.to_s)
+  File.write('./datas/persons.json', ruby.to_s)
+end
+
+def save_rentals(rentals)
+  data = []
+  rentals.each do |rental|
+    data.push({ date: rental.date, person_id: rental.person.id, book_id: rental.book.id })
+  end
+  File.write('./datas/rentals.json', JSON.generate(data))
 end

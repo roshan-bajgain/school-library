@@ -1,1 +1,0 @@
-[{"classe":"Student","parent_permission":{"parent_permission":{"parent_permission":true}},"age":1,"name":"a","classroom":null},{"classe":"Teacher","specialization":"s","age":1,"name":"m"},{"classe":"Student","parent_permission":{"parent_permission":false},"age":3,"name":"c","classroom":null}]

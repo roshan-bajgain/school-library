@@ -11,7 +11,7 @@ require './lib/displayer'
 require './lib/load_data'
 
 class App
-  attr_accessor :books, :persons
+  attr_accessor :books, :rentals, :persons
 
   def initialize
     @books = load_books

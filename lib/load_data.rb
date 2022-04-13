@@ -3,7 +3,7 @@ require './teacher'
 
 def load_books
   books = []
-  books_save = JSON.parse(File.read('books.json'))
+  books_save = JSON.parse(File.read('./datas/books.json'))
   books_save.each do |b|
     books << Book.new(b['title'], b['author'])
   end
@@ -12,7 +12,7 @@ end
 
 def load_persons
   persons = []
-  persons_save = JSON.parse(File.read('persons.json'))
+  persons_save = JSON.parse(File.read('./datas/persons.json'))
 
   persons_save.each do |p|
     persons << if p['classe'] == 'Student'
