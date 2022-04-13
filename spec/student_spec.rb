@@ -5,8 +5,8 @@ describe 'Studen' do
     @student = Student.new('22', 'Harry poter', 'true')
   end
   it 'Take age, name and parent_permission' do
-    @student.age.should eql '22'
-    @student.name.should eql 'Harry poter'
-    @student.parent_permission.should eql 'true'
+    expect(@student.age).to eq '22'
+    expect(@student.name).to eq 'Harry poter'
+    expect(@student.parent_permission).to eq 'true'
   end
 end

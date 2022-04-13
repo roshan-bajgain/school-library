@@ -5,8 +5,8 @@ describe 'Person' do
     @person = Person.new('55', 'roshan', parent_permission: true)
   end
   it 'Take age, name and parent_permission' do
-    @person.age.should eql '55'
-    @person.name.should eql 'roshan'
-    @person.parent_permission.should eql true
+    expect(@person.age).to eq '55'
+    expect(@person.name).to eq 'roshan'
+    expect(@person.parent_permission).to eq true
   end
 end
