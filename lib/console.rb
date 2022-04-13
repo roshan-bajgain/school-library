@@ -12,9 +12,7 @@ class Console
       input = gets.chomp
       if input == '7'
         puts 'Thank You for using my School Library!'
-        save_books(@app.books)
-        save_rentals(@app.rentals)
-        save_persons(@app.persons)
+        save_datas(@app.books, @app.persons, @app.rentals)
         break
       end
 

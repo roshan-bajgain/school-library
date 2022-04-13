@@ -1,5 +1,12 @@
 require './student'
 require './teacher'
+require './rental'
+
+def initialize_files
+  File.write('./datas/books.json', '[]') unless File.exist?('./datas/books.json')
+  File.write('./datas/persons.json', '[]') unless File.exist?('./datas/persons.json')
+  File.write('./datas/rentals.json', '[]') unless File.exist?('./datas/rentals.json')
+end
 
 def load_books
   books = []
@@ -22,4 +29,15 @@ def load_persons
                end
   end
   persons
+end
+
+def load_rentals(persons, books)
+  rentals = []
+  rentals_save = JSON.parse(File.read('./datas/rentals.json'))
+  rentals_save.each do |r|
+    rentals << Rental.new(r['date'],
+                          persons.select { |p| p.name == r['name'] } [0],
+                          books.select { |b| b.title == r['title'] } [0])
+  end
+  rentals
 end

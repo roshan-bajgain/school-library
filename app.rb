@@ -14,9 +14,10 @@ class App
   attr_accessor :books, :rentals, :persons
 
   def initialize
+    initialize_files
     @books = load_books
     @persons = load_persons
-    @rentals = []
+    @rentals = load_rentals(@persons, @books)
     @displayer = Displayer.new
   end
 
