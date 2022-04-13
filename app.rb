@@ -8,14 +8,14 @@ require './lib/create_books'
 require './lib/create_persons'
 require './lib/create_rental'
 require './lib/displayer'
-require 'json'
+require './lib/load_data'
 
 class App
   attr_accessor :books, :persons
 
   def initialize
-    @books = []
-    @persons = []
+    @books = load_books
+    @persons = load_persons
     @rentals = []
     @displayer = Displayer.new
   end
