@@ -9,13 +9,10 @@ describe 'Book' do
     @book.author.should eql 'jk rouling'
     @book.title.should eql 'Harry poter'
   end
-  # it "Add new book renter" do
-  #     @rental = rental.new("2022-01-02", "Roshan")
-  #     @book.add_rental(@rental)
-  #     @expect(@book.rentals).should eq([@rental])
-  # end
-  # it "Add new book rental" do
-  #     @book.add_rental(person.new( "John Doe", "2000-08-20"))
-  #     @book.rentals.should eql [person.new("John Doe", "2000-08-20")]
-  #   end
+
+  it 'Take title and author' do
+    book2 = Book.new('The Gorkha', 'Roshan')
+    book2.author.should eql 'Roshan'
+    book2.title.should eql 'The Gorkha'
+  end
 end
