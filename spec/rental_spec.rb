@@ -3,15 +3,22 @@ require './person'
 
 describe Rental do
   context 'When testing the Rental class' do
-    it 'should return true when we call the can_use_services? method' do
-      teacher = Teacher.new('specialization', 33, 'Tony')
-      response = teacher.can_use_services?
-      expect(response).to eq true
+    it 'The add_rental method returns a rental and adds its to the book' do
+      book = Book.new('Title', 'Author')
+      person = Person.new(24, 'Bob')
+
+      rental = person.add_rental(book, '2021-05-04')
+
+      expect(person.rental).to eql [rental]
     end
 
-    it 'should create an instance of Person when creating a Teacher' do
-      teacher = Teacher.new('specialization', 33, 'Tony')
-      expect(teacher).to be_a Person
+    it 'should return only one rental when adding a rental to a student and a book' do
+      person = Student.new(15, 'Harry', parent_permission: true)
+      book = Book.new('title', 'author')
+      Rental.new('2002/02/02', person, book)
+
+      expect(person.rental.length).to eq 1
+      expect(book.rental.length).to eq 1
     end
   end
 end
